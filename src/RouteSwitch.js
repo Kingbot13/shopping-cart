@@ -6,8 +6,6 @@ function RouteSwitch() {
         <BrowserRouter>
             <Routes>
                 <Route path="*" element={<App />} />
-                {/* <Route path="/home" element={<App />} /> */}
-
             </Routes>
         </BrowserRouter>
     )
