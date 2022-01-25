@@ -7,6 +7,15 @@ import Products from './components/Products';
 
 
 function App() {
+  const [items, setItems] = React.useState([]);
+
+  React.useEffect(()=> {
+    fetch('https://fakestoreapi.com/products')
+    .then(res => res.json())
+    .then(data => setItems(data))
+    .catch(error => console.error(error));
+  })
+
   return (
     <div>
       <Nav />
