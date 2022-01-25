@@ -14,7 +14,7 @@ function App() {
     .then(res => res.json())
     .then(data => setItems(data))
     .catch(error => console.error(error));
-  })
+  }, []);
 
   return (
     <div>

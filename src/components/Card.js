@@ -5,6 +5,7 @@ function Card(props) {
         <div>
             <img src={props.image} alt="" />
             <p>{props.name}</p>
+            <button type="button">Add to Cart</button>
         </div>
     )
 }
