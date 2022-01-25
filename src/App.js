@@ -10,7 +10,7 @@ function App() {
   const [items, setItems] = React.useState([]);
 
   React.useEffect(()=> {
-    fetch('https://fakestoreapi.com/products')
+    fetch('https://fakestoreapi.com/products/category/electronics')
     .then(res => res.json())
     .then(data => setItems(data))
     .catch(error => console.error(error));
@@ -21,7 +21,7 @@ function App() {
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="products" element={<Products />} />
+        <Route path="products" element={<Products items={items}/>} />
       </Routes>
     </div>
   );
