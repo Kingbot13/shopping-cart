@@ -8,6 +8,7 @@ import Products from './components/Products';
 
 function App() {
   const [items, setItems] = React.useState([]);
+  const [count, setCount] = React.useState(0);
 
   React.useEffect(()=> {
     fetch('https://fakestoreapi.com/products/category/electronics')
@@ -16,12 +17,16 @@ function App() {
     .catch(error => console.error(error));
   }, []);
 
+  function addToCart() {
+    setCount(count + 1);
+  }
+
   return (
     <div>
-      <Nav />
+      <Nav count={count} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="products" element={<Products items={items}/>} />
+        <Route path="products" element={<Products handleClick={()=> addToCart} items={items}/>} />
       </Routes>
     </div>
   );
