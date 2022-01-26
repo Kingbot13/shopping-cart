@@ -7,7 +7,7 @@ function Products(props) {
         <div>
             <h1>Products</h1>
             <div>
-                {items.map(item => <Card key={item.id} image={item.image} name={item.title} handleClick={handleClick} />)}
+                {items.map(item => <Card key={item.id} image={item.image} name={item.title}  id={item.id} handleClick={handleClick} />)}
             </div>
         </div>
     )
