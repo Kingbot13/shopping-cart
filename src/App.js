@@ -19,6 +19,7 @@ function App() {
 
   function addToCart() {
     setCount(count + 1);
+    console.log("clicked");
   }
 
   return (
@@ -26,7 +27,7 @@ function App() {
       <Nav count={count} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="products" element={<Products handleClick={()=> addToCart} items={items}/>} />
+        <Route path="products" element={<Products handleClick={addToCart} items={items}/>} />
       </Routes>
     </div>
   );
