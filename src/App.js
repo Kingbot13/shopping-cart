@@ -11,6 +11,8 @@ function App() {
   const [count, setCount] = React.useState(0);
   const [cart, setCart] = React.useState([]);
 
+  
+
   React.useEffect(()=> {
     fetch('https://fakestoreapi.com/products/category/electronics')
     .then(res => res.json())
@@ -18,13 +20,21 @@ function App() {
     .catch(error => console.error(error));
   }, []);
 
-  function addToCart() {
+  React.useEffect(() => {
+    console.log("cart" , cart);
+    
+  },[cart])
+
+  function addToCart(id) {
     // needs to add item to cart. initialize cart state array to track items added to cart
     // how to send items to cart?
     /*
       possibly set data attributes to card that equal the item id
     */
+    let itemId = items.filter(item=> item.id === id);
+    setCart(prev => [...prev, itemId]);
     setCount(count + 1);
+    console.log('item', itemId);
     console.log("clicked");
   }
 
