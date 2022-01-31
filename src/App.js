@@ -26,11 +26,6 @@ function App() {
   },[cart])
 
   function addToCart(id) {
-    // needs to add item to cart. initialize cart state array to track items added to cart
-    // how to send items to cart?
-    /*
-      possibly set data attributes to card that equal the item id
-    */
     let itemId = items.filter(item=> item.id === id);
     setCart(prev => [...prev, itemId]);
     setCount(count + 1);
