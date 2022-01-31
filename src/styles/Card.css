@@ -1,0 +1,10 @@
+.card-container{
+    margin: auto;
+    height: 10%;
+    width: 10%;
+}
+
+.card-container img {
+    height: 8rem;
+    width: 8rem;
+}

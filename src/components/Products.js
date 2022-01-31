@@ -1,11 +1,12 @@
 import React from "react";
 import Card from "./Card";
 import Cart from "./Cart";
+import '../styles/Products.css';
 
 function Products(props) {
     const {items, handleClick} = props;
     return (
-        <div>
+        <div className="products-container">
             <h1>Products</h1>
             <Cart />
             <div>

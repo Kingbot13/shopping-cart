@@ -4,6 +4,7 @@ import {Routes, Route} from 'react-router-dom';
 import Nav from './components/Nav';
 import Home from './components/Home';
 import Products from './components/Products';
+import Cart from './components/Cart';
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
 
   return (
     <div>
+      <Cart items={cart} />
       <Nav count={count} />
       <Routes>
         <Route path="/" element={<Home />} />
