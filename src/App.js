@@ -36,7 +36,7 @@ function App() {
 
   return (
     <div>
-      <Cart items={cart} />
+      {/* <Cart items={cart} /> */}
       <Nav count={count} />
       <Routes>
         <Route path="/" element={<Home />} />
