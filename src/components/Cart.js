@@ -1,14 +1,15 @@
 import React from "react";
 import CartCard from "./CartCard";
+import '../styles/Cart.css';
 
 function Cart(props) {
-    const {items} = props;
+    const {items, onClick} = props;
     const cards = items.map((item)=> {
         return <CartCard key={item.id} image={item.image} title={item.title} price={item.price} />;
      });
     return (
-        <div>
-            <button>X</button>
+        <div className="cart-container">
+            <button onClick={onClick}>X</button>
             <h3>Your Cart</h3>
             {cards}
         </div>

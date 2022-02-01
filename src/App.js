@@ -34,10 +34,16 @@ function App() {
     console.log("clicked");
   }
 
+  function toggleCart() {
+    const cartContainer = document.querySelector('.cart-container');
+    cartContainer.classList.toggle('hidden');
+    console.log('clicked');
+  }
+
   return (
     <div>
-      <Cart items={cart} />
-      <Nav count={count} />
+      <Cart items={cart} onClick={toggleCart} />
+      <Nav count={count} onClick={toggleCart} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="products" element={<Products handleClick={addToCart} items={items}/>} />

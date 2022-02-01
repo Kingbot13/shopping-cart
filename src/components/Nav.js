@@ -6,7 +6,7 @@ function Nav(props) {
         <nav>
             <NavLink to="/">Home</NavLink>
             <NavLink to="products">Products</NavLink>
-            <p>Cart {props.count}</p>
+            <p onClick={props.onClick}>Cart {props.count}</p>
         </nav>
     )
 }
