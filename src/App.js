@@ -28,7 +28,7 @@ function App() {
 
   function addToCart(id) {
     let itemId = items.filter(item=> item.id === id);
-    setCart(prev => [...prev, itemId]);
+    setCart(prev => [...prev, itemId[0]]);
     setCount(count + 1);
     console.log('item', itemId);
     console.log("clicked");
@@ -36,7 +36,7 @@ function App() {
 
   return (
     <div>
-      {/* <Cart items={cart} /> */}
+      <Cart items={cart} />
       <Nav count={count} />
       <Routes>
         <Route path="/" element={<Home />} />

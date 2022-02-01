@@ -3,10 +3,10 @@ import React from "react";
 function CartCard(props) {
     return (
         <div>
-                <img />
+                <img src={props.image} alt="" />
                 <div>
-                    <h4>item name</h4>
-                    <p>price</p>
+                    <h4>{props.title}</h4>
+                    <p>${props.price}.00</p>
                     <div>
                         <button>-</button>
                         <input></input>
