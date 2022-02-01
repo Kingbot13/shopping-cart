@@ -9,7 +9,7 @@ function CartCard(props) {
                     <p>${props.price}.00</p>
                     <div>
                         <button>-</button>
-                        <input></input>
+                        <input type='number'></input>
                         <button>+</button>
                     </div>
                 </div>

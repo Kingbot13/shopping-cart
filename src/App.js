@@ -24,11 +24,8 @@ function App() {
 
   React.useEffect(() => {
     const total = cart.reduce((a, b) => a + b.price, 0);
-    console.log("total" , total);
     setPrice(total);
-
-    
-  },[cart])
+  },[cart]);
 
   function addToCart(id) {
     let itemId = items.filter(item=> item.id === id);
