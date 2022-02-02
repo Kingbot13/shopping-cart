@@ -14,8 +14,6 @@ function App() {
   const [price, setPrice] = React.useState(0);
   const [values, setValues] = React.useState({});
 
-  
-
   React.useEffect(()=> {
     fetch('https://fakestoreapi.com/products/category/electronics')
     .then(res => res.json())
@@ -23,24 +21,11 @@ function App() {
     .catch(error => console.error(error));
   }, []);
 
-  React.useEffect(()=> {
-    if (cart.length > 0) {
-      const last = cart[cart.length - 1].id;
-      setValues((prev)=> {
-        return {
-          ...prev,
-          [`item${last}`] : 1
-        }
-      });
-      
-    } 
-  }, [])
-
   React.useEffect(() => {
     
-    const total = cart.reduce((a, b) => a + (b.price * values[`item${b.id}`]), 0);
+    const total = cart.reduce((a, b) => a + (b.price * values[`item${b.id}`] || b.price * 1), 0);
     setPrice(total);
-  }, [cart]);
+  }, [cart, values]);
 
   function addToCart(id) {
     let itemId = items.filter(item=> item.id === id);
@@ -62,10 +47,27 @@ function App() {
     });
   }
 
+  function increment(id) {
+    setValues({...values, [`item${id}`]: values[`item${id}`] + 1});
+  }
+  function decrement(id) {
+    if (values[`item${id}`] > 1) {
+      setValues({...values, [`item${id}`]: values[`item${id}`] - 1});
+    }
+  }
+
 
   return (
     <div>
-      <Cart items={cart} onClick={toggleCart} total={price} values={values} handleChange={handleChange} />
+      <Cart 
+      items={cart} 
+      onClick={toggleCart} 
+      total={price} 
+      values={values} 
+      handleChange={handleChange} 
+      increment={increment}  
+      decrement={decrement}  
+      />
       <Nav count={count} onClick={toggleCart} />
       <Routes>
         <Route path="/" element={<Home />} />

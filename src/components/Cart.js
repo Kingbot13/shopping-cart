@@ -13,6 +13,8 @@ function Cart(props) {
             price={item.price} 
             values={props.values}
             handleChange={props.handleChange}
+            increment={props.increment}
+            decrement={props.decrement}
 
             />);
      });
