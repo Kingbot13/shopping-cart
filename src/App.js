@@ -29,8 +29,10 @@ function App() {
 
   function addToCart(id) {
     let itemId = items.filter(item=> item.id === id);
-    setCart(prev => [...prev, itemId[0]]);
-    setCount(count + 1);
+    if (!cart.includes(itemId[0])) {
+      setCart(prev => [...prev, itemId[0]]);
+      setCount(count + 1);
+    }
   }
 
   function toggleCart() {
