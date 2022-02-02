@@ -12,6 +12,7 @@ function App() {
   const [count, setCount] = React.useState(0);
   const [cart, setCart] = React.useState([]);
   const [price, setPrice] = React.useState(0);
+  const [values, setValues] = React.useState({});
 
   
 
@@ -22,16 +23,29 @@ function App() {
     .catch(error => console.error(error));
   }, []);
 
+  React.useEffect(()=> {
+    if (cart.length > 0) {
+      const last = cart[cart.length - 1].id;
+      setValues((prev)=> {
+        return {
+          ...prev,
+          [`item${last}`] : 1
+        }
+      });
+      
+    } 
+  }, [])
+
   React.useEffect(() => {
-    const total = cart.reduce((a, b) => a + b.price, 0);
+    
+    const total = cart.reduce((a, b) => a + (b.price * values[`item${b.id}`]), 0);
     setPrice(total);
-  },[cart]);
+  }, [cart]);
 
   function addToCart(id) {
     let itemId = items.filter(item=> item.id === id);
     setCart(prev => [...prev, itemId[0]]);
     setCount(count + 1);
-    console.log('item', itemId);
   }
 
   function toggleCart() {
@@ -39,10 +53,19 @@ function App() {
     cartContainer.classList.toggle('hidden');
   }
 
+  function handleChange(e) {
+    setValues((prev)=> {
+      return {
+        ...prev,
+        [e.target.name]: e.target.value
+      }
+    });
+  }
+
 
   return (
     <div>
-      <Cart items={cart} onClick={toggleCart} total={price} />
+      <Cart items={cart} onClick={toggleCart} total={price} values={values} handleChange={handleChange} />
       <Nav count={count} onClick={toggleCart} />
       <Routes>
         <Route path="/" element={<Home />} />
