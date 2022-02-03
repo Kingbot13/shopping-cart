@@ -22,7 +22,10 @@ function App() {
   }, []);
 
   React.useEffect(() => {
-    
+    const last = cart[cart.length -1]
+    if (cart.length > 0 && cart.length !== Object.keys(values).length) {
+      setValues({...values, [`item${last.id}`]: 1});
+    }
     const total = cart.reduce((a, b) => a + (b.price * values[`item${b.id}`] || b.price * 1), 0);
     setPrice(total);
   }, [cart, values]);
@@ -44,13 +47,16 @@ function App() {
     setValues((prev)=> {
       return {
         ...prev,
-        [e.target.name]: e.target.value
+        [e.target.name]: Number(e.target.value)
       }
     });
   }
 
   function increment(id) {
     setValues({...values, [`item${id}`]: values[`item${id}`] + 1});
+    console.log('add');
+    console.log(typeof(values[`item${id}`]));
+    console.log(values[`item${id}`]);
   }
   function decrement(id) {
     if (values[`item${id}`] > 1) {
