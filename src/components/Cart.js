@@ -24,7 +24,7 @@ function Cart(props) {
             <h2>Your Cart</h2>
             {cards}
             <p>TOTAL ${total} </p>
-            <button>Checkout</button>
+            <button className="checkout-btn">Checkout</button>
         </div>
     )
 }
