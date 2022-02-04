@@ -81,6 +81,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="products" element={<Products handleClick={addToCart} items={items}/>} />
       </Routes>
+      <footer>
+        <p>created by Dylan King</p>
+      </footer>
     </div>
   );
 }
