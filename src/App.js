@@ -13,6 +13,7 @@ function App() {
   const [cart, setCart] = React.useState([]);
   const [price, setPrice] = React.useState(0);
   const [values, setValues] = React.useState({});
+  const [showCart, setShowCart] = React.useState(false);
 
   React.useEffect(()=> {
     fetch('https://fakestoreapi.com/products/category/electronics')
@@ -39,8 +40,7 @@ function App() {
   }
 
   function toggleCart() {
-    const cartContainer = document.querySelector('.cart-container');
-    cartContainer.classList.toggle('hidden');
+    showCart === false ? setShowCart(true) : setShowCart(false);
   }
 
   function handleChange(e) {
@@ -67,6 +67,7 @@ function App() {
 
   return (
     <div className='main-container'>
+      {showCart && 
       <Cart 
       items={cart} 
       onClick={toggleCart} 
@@ -75,7 +76,7 @@ function App() {
       handleChange={handleChange} 
       increment={increment}  
       decrement={decrement}  
-      />
+      />}
       <Nav count={count} onClick={toggleCart} />
       <Routes>
         <Route path="/" element={<Home />} />
