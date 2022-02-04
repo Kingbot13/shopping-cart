@@ -6,7 +6,7 @@ function CartCard(props) {
                 <img src={props.image} alt="" />
                 <div>
                     <h4>{props.title}</h4>
-                    <p>${props.price}.00</p>
+                    <p>${props.price}</p>
                     <div>
                         <button onClick={()=> props.decrement(props.id)}>-</button>
                         <input 
