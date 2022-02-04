@@ -19,11 +19,11 @@ function Cart(props) {
             />);
      });
     return (
-        <div className="cart-container">
+        <div className="cart-container hidden">
             <button onClick={onClick}>X</button>
             <h3>Your Cart</h3>
             {cards}
-            <p>TOTAL ${total}.00 </p>
+            <p>TOTAL ${total} </p>
             <button>Checkout</button>
         </div>
     )

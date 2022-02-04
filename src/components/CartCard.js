@@ -1,8 +1,9 @@
 import React from "react";
+import '../styles/CartCard.css';
 
 function CartCard(props) {
     return (
-        <div>
+        <div className="cart-card-container">
                 <img src={props.image} alt="" />
                 <div>
                     <h4>{props.title}</h4>
