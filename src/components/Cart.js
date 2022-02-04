@@ -21,7 +21,7 @@ function Cart(props) {
     return (
         <div className="cart-container hidden">
             <button onClick={onClick}>X</button>
-            <h3>Your Cart</h3>
+            <h2>Your Cart</h2>
             {cards}
             <p>TOTAL ${total} </p>
             <button>Checkout</button>
