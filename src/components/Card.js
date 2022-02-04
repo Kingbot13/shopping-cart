@@ -6,6 +6,7 @@ function Card(props) {
         <div data-id={props.id} className="card-container">
             <img src={props.image} alt="" />
             <p>{props.name}</p>
+            <p>${props.price}.00</p>
             <button type="button" onClick={()=>props.handleClick(props.id)}>Add to Cart</button>
         </div>
     )
