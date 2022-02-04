@@ -66,7 +66,7 @@ function App() {
 
 
   return (
-    <div>
+    <div className='main-container'>
       <Cart 
       items={cart} 
       onClick={toggleCart} 

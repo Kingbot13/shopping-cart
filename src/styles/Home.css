@@ -1,0 +1,11 @@
+.home-container {
+    background-color: #8D9EC6;
+    height: 25vh;
+    width: 60%;
+    margin: auto;
+    margin-top: 10vh;
+    border-radius: 25px;
+    box-shadow: 0px 10px 13px -7px #000000;
+    color: #141B41;
+
+}

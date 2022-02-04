@@ -1,14 +1,15 @@
 import React from "react";
+import '../styles/Home.css';
 
 function Home() {
     return (
-        <div>
-            <h1>Home</h1>
+        <div className="home-container">
+            <h2>Welcome!</h2>
             <div>
-                <p>Random text placeholder</p>
+                <p>The Realest Fake Store You've Ever Seen</p>
             </div>
         </div>
-    )
+    );
 }
 
 export default Home;

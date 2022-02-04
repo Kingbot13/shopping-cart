@@ -1,0 +1,22 @@
+nav {
+    background-color: #fbd1a2;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: sticky;
+    height: 5rem;
+}
+
+.link {
+    text-decoration: none;
+    color: #141B41;
+}
+
+nav .link, nav .cart-icon {
+    margin-right: 2rem;
+}
+
+nav h1 {
+    align-self: flex-start;
+    margin: auto;
+}

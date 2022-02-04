@@ -1,12 +1,14 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import '../styles/Nav.css';
 
 function Nav(props) {
     return (
         <nav>
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="products">Products</NavLink>
-            <p onClick={props.onClick}>Cart {props.count}</p>
+            <h1>Realest Fake Store</h1>
+            <NavLink className='link' to="/">Home</NavLink>
+            <NavLink className='link' to="products">Products</NavLink>
+            <p className="cart-icon" onClick={props.onClick}>Cart {props.count}</p>
         </nav>
     )
 }
