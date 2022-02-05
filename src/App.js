@@ -89,7 +89,7 @@ function App() {
       />}
       <Nav count={count} onClick={toggleCart} />
       <Routes>
-        <Route path="/shopping-cart" element={<Home />} />
+        <Route path="shopping-cart" element={<Home />} />
         <Route path="products" element={<Products handleClick={addToCart} items={items}/>} />
       </Routes>
       <footer>
