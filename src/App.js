@@ -61,6 +61,13 @@ function App() {
   function decrement(id) {
     if (values[`item${id}`] > 1) {
       setValues({...values, [`item${id}`]: values[`item${id}`] - 1});
+    } else {
+      // remove id from values and cart
+      const newValues = {...values};
+      delete newValues[`item${id}`];
+      setValues(newValues);
+      const newCart = cart.filter(item => item.id !== id);
+      setCart(newCart);
     }
   }
 
